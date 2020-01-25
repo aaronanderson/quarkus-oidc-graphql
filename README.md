@@ -4,7 +4,7 @@
 
 start keycloak:
 
-` docker run --name keycloak -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -e DB_VENDOR=h2 -p 8180:8080 jboss/keycloak
+`docker run --name keycloak -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -e DB_VENDOR=h2 -p 8180:8080 jboss/keycloak`
 
 Download https://github.com/quarkusio/quarkus-quickstarts/blob/master/security-openid-connect-quickstart/config/quarkus-realm.json
 log into http://localhost:8180 as admin/admin
