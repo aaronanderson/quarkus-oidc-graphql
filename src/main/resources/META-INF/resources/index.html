@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<title>Quarkus OIDC GraphQL Issue</title>
+
+</head>
+
+<body>
+
+	<h2>Quarkus OIDC GraphQL Issue</h2>
+
+	Query: <span id="query"></span>
+	<br>
+	Result: <span id="result"></span>
+
+	<script type="text/javascript">
+
+		const query = `query { hello }`;
+
+
+		async function runQuery() {
+			console.log('Submitting GraphQL Query');
+			document.querySelector("#query").textContent = query;
+
+			let response = await fetch(`/graphql`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					query: query,
+				})
+			});
+			let data = await response.json();
+			console.log("Received GraphQL Response", data);
+
+			document.querySelector("#result").textContent = data.data.hello;
+		}
+
+		window.addEventListener('load', (event) => {			
+			runQuery();
+		});
+
+	</script>
+</body>
+
+</html>
