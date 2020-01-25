@@ -7,13 +7,18 @@ start keycloak:
 `docker run --name keycloak -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -e DB_VENDOR=h2 -p 8180:8080 jboss/keycloak`
 
 Download https://github.com/quarkusio/quarkus-quickstarts/blob/master/security-openid-connect-quickstart/config/quarkus-realm.json
+
 log into http://localhost:8180 as admin/admin
 
 In the top left realm drop down select Add Realm
 
-Select the quarkus-realm.json file and click create
+Select the quarkus-realm.json file 
 
-Navigate to Clients -> backend-service, and on the Settings tab in the Valid Redirect URIs field add `http://localhost:8080/` and click Save. 
+Click create
+
+Navigate to Clients -> backend-service, and on the Settings tab in the Valid Redirect URIs field add `http://localhost:8080/` 
+
+Click Save. 
 
 
 ## Running the Example
